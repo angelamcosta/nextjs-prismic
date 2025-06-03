@@ -1,4 +1,8 @@
+# Nextjs + Prismic
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+[![wakatime](https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/901d8228-b451-4051-b821-26684ecdc6ab.svg)](https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/901d8228-b451-4051-b821-26684ecdc6ab)
 
 ## Getting Started
 

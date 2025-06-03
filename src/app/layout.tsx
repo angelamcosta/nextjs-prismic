@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { createClient } from "@/prismicio";
 import { Nunito, Nunito_Sans } from "next/font/google";
 import type { Metadata, ResolvingMetadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -16,24 +18,18 @@ const nunitoSans = Nunito_Sans({
   display: "swap",
 });
 
-type Props = {
-  params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
- 
 export async function generateMetadata(): Promise<Metadata> {
-
   const client = createClient();
 
-  const page = await client.getSingle("settings");
+  const settings = await client.getSingle("settings");
 
   return {
-    title: page.data.site_title || "PrismicTitleFallback",
-    description: page.data.meta_description || "PrismicDescptFallback",
+    title: settings.data.site_title || "PrismicTitleFallback",
+    description: settings.data.meta_description || "PrismicDescptFallback",
     openGraph: {
-      images: [page.data.og_image.url || "PrismicImageFallback"],
-    }
-  }
+      images: [settings.data.og_image.url || "PrismicImageFallback"],
+    },
+  };
 }
 
 export default function RootLayout({
@@ -44,9 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={clsx(nunito.variable, nunitoSans.variable)}>
       <body>
-        <header>Header!</header>
+        <Header />
         {children}
-        <footer>Footer!</footer>
+        <Footer />
       </body>
     </html>
   );
